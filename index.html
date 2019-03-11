@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">A* algorithm</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <form id="astarButtons" class="form-inline">
+          <button id="astarButtonStart" type="button" class="btn btn-primary" action="start">Start</button>
+          <button id="astarButtonEnd" type="button" class="btn btn-warning" action="end">End</button>
+          <button id="astarButtonBlock" type="button" class="btn btn-danger" action="block">Block</button>
+          <button id="astarButtonRun" type="button" class="btn btn-success" action="run">Run</button>
+          <button id="astarButtonPenalty" type="button" class="btn btn-light" action="penalty">Penalty</button>
+        </form>
+      </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0">
+      <div class="container" id="step1">
+        <form id="formCreate">
+          <div class="form-group">
+            <label for="astarInputRows">Rows</label>
+            <input type="number" class="form-control" id="astarInputRows" value="4">
+          </div>
+          <div class="form-group">
+            <label for="astarInputColumns">Columns</label>
+            <input type="number" class="form-control" id="astarInputColumns" value="4">
+          </div>
+          <button type="button" class="btn btn-primary" id="astarButtonCreateMap">Create map</button>
+        </form>
+      </div>
+      <div class="container" id="step2">
+        <table class="table table-bordered" id="astarTable"></table>
+      </div>
+    </main>
+
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/tether.min.js"></script>
+    <script src="js/vendor/vbootstrap.min.js"></script>
+    <script src="js/astar.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
