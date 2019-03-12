@@ -53,10 +53,10 @@ class PriorityQueue {
     insert(element, priority) { 
         let contain = false;
         for (var i = 0; i < this.items.length && !contain; i++) { 
-            if (this.items[i].row == element.row && this.items[i].col == element.col) { 
-                if (this.items[i].priority > priority) {
+            if (this.items[i].element.row == element.row && this.items[i].element.col == element.col) { 
+                contain = true;
+                if (this.items[i].element.priority > priority) {
                     this.items[i] = new QElement(element, priority);
-                    contain = true;
                 }
             } 
         } 
@@ -115,9 +115,9 @@ function findNode(list, coord){
 }
 
 function astar(map, start, end, blocks) {
-    let openList  = new PriorityQueue();;
-    let closeList = blocks.slice();;
-    startNode = new Node(start[0], start[1], 0, g(start[0], start[1], end[0], end[1], map[start[0], start[1]]), null);
+    let openList  = new PriorityQueue();
+    let closeList = blocks.slice();
+    startNode = new Node(start[0], start[1], 0, g(start[0], start[1], end[0], end[1], map[start[0], start[1]]), null, map[start[0]][start[1]]);
     openList.enqueue(startNode, startNode.f);
     let moves = [
         [-1, -1], [0, -1], [1, -1],
@@ -146,9 +146,9 @@ function astar(map, start, end, blocks) {
                 let childNode;
                 if(findNode(closeList, child)==null) {
                     if ((move[0] == -1 && move[1] == -1) || (move[0] == 1 && move[1] == -1) || (move[0] == -1 && move[1] == 1) || (move[0] == 1 && move[1] == 1))
-                        childNode = new Node(child[0], child[1], currentNode.h + Math.sqrt(2), g(child[0], end[0], child[1], end[1]), currentNode, map[child[0]][child[1]]);
+                        childNode = new Node(child[0], child[1], currentNode.h + Math.sqrt(2), g(child[0], child[1], end[0], end[1]), currentNode, map[child[0]][child[1]]);
                     else
-                        childNode = new Node(child[0], child[1], currentNode.h + 1, g(child[0], end[0], child[1], end[1]), currentNode, map[child[0]][child[1]]);
+                        childNode = new Node(child[0], child[1], currentNode.h + 1, g(child[0], child[1], end[0], end[1]), currentNode, map[child[0]][child[1]]);
                     
                     openList.insert(childNode, childNode.f);
                 }
@@ -175,15 +175,14 @@ let map = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
-let map = [
-    [0, 0, 0, 1, 0],
-    [0, 0, 0, 1, 0],
-    [0, 0, 0, 1, 0],
-    [0, 0, 0, 1, 0],
-    [0, 0, 0, 0, 0]
-]
 */
-//console.log(astar(map, [1, 1], [4, 7]));
+let map = [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0]
+]
+console.log(astar(map, [0, 0], [0, 3], []));
 
 
 /*

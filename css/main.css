@@ -37,9 +37,13 @@ code {
 
 table {
     width: 90%;
+    table-layout:fixed;
   }
   td {
     position: relative;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;  
   }
   td:after {
     content: '';
