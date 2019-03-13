@@ -38,12 +38,19 @@ code {
 table {
     width: 90%;
     table-layout:fixed;
+    height: 100%;
+    text-align: center;
+    vertical-align: central;
   }
   td {
     position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     background-size:     cover;
     background-repeat:   no-repeat;
-    background-position: center center;  
+    background-position: center center;
+    height: 20px;
   }
   td:after {
     content: '';
